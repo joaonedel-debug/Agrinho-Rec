@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho Rec - Agro Forte, Futuro Sustentável</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-green: #2d5016;
+            --secondary-green: #4a7c2e;
+            --light-green: #7cb342;
+            --earth-brown: #8b6f47;
+            --light-bg: #f5f5f0;
+            --text-dark: #2c3e50;
+            --accent-color: #d4a574;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header .tagline {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+        
+        /* NAVEGAÇÃO */
+        nav {
+            background-color: var(--primary-green);
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--light-green);
+        }
+        
+        /* MAIN CONTENT */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            margin: 50px 0;
+            padding: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(76, 124, 46, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%);
+        }
+        
+        h2 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-left: 5px solid var(--light-green);
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: var(--secondary-green);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        /* CARDS */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--light-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+        
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        /* LISTA */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 15px 0;
+        }
+        
+        .footer-links a {
+            color: #b0d46e;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            header .tagline {
+                font-size: 1.05em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                min-width: auto;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        
+        /* BOTÃO */
+        .btn {
+            display: inline-block;
+            background-color: var(--light-green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-green);
+        }
+        
+        /* DESTAQUE */
+        .highlight {
+            background-color: rgba(212, 165, 116, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>🌾 Agrinho Rec</h1>
+        <p class="tagline">Agro Forte, Futuro Sustentável</p>
+        <p>Equilíbrio entre Produção e Meio Ambiente</p>
+    </header>
+    
+    <!-- NAVEGAÇÃO -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#pilares">Pilares</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <!-- SEÇÃO INICIAL -->
+        <section id="inicio">
+            <h2>Bem-vindo ao Agrinho Rec</h2>
+            <p>
+                Acreditamos que o futuro da agricultura está na harmonia entre <strong>produção responsável</strong> 
+                e <strong>preservação ambiental</strong>. Nosso projeto busca promover práticas agrícolas sustentáveis 
+                que garantam alimentos de qualidade, respeito ao meio ambiente e prosperidade para as comunidades rurais.
+            </p>
+            <div class="highlight">
+                <strong>🌱 Nossa Missão:</strong> Fortalecer a agricultura através de práticas sustentáveis que 
+                protegem o planeta para gerações futuras.
+            </div>
+        </section>
+        
+        <!-- SOBRE -->
+        <section id="sobre">
+            <h2>Sobre o Projeto</h2>
+            <p>
+                O Agrinho Rec é uma iniciativa dedicada a demonstrar que é possível produzir alimentos em abundância 
+                sem comprometer os recursos naturais. Através de educação, inovação e engajamento comunitário, 
+                trabalhamos para transformar o setor agrícola.
+            </p>
+            
+            <h3>O Desafio Global</h3>
+            <p>
+                A agricultura enfrentava um dilema: atender à crescente demanda por alimentos mantendo a saúde 
+                do planeta. O Agrinho Rec oferece soluções práticas e comprovadas que demonstram que desenvolvimento 
+                e sustentabilidade caminham juntos.
+            </p>
+            
+            <h3>Nossos Valores</h3>
+            <ul>
+                <li><strong>Sustentabilidade:</strong> Práticas que preservam recursos para o futuro</li>
+                <li><strong>Inovação:</strong> Tecnologias modernas a favor do meio ambiente</li>
+                <li><strong>Educação:</strong> Capacitação de produtores rurais</li>
+                <li><strong>Responsabilidade:</strong> Compromisso com o planeta e as comunidades</li>
+            </ul>
+        </section>
+        
+        <!-- PILARES -->
+        <section id="pilares">
+            <h2>Os 3 Pilares da Sustentabilidade Agrícola</h2>
+            <p>
+                Nossa abordagem se baseia em três pilares fundamentais que garantem a viabilidade econômica, 
+                ambiental e social:
+            </p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Ambiental</h3>
+                    <p>
+                        Proteção de solos, água e biodiversidade. Redução de gases de efeito estufa e 
+                        conservação de recursos naturais.
+                    </p>
+                    <ul>
+                        <li>Rotação de culturas</li>
+                        <li>Preservação de matas ciliares</li>
+                        <li>Redução de agrotóxicos</li>
+                        <li>Compostagem e reciclagem</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Econômico</h3>
+                    <p>
+                        Viabilidade financeira e rentabilidade para os produtores rurais através de 
+                        práticas eficientes e mercados diferenciados.
+                    </p>
+                    <ul>
+                        <li>Redução de custos com insumos</li>
+                        <li>Produtos com agregação de valor</li>
+                        <li>Acesso a novos mercados</li>
+                        <li>Diversificação de renda</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Social</h3>
+                    <p>
+                        Melhoria da qualidade de vida, segurança alimentar e fortalecimento das 
+                        comunidades rurais.
+                    </p>
+                    <ul>
+                        <li>Segurança alimentar</li>
+                        <li>Inclusão social</li>
+                        <li>Capacitação profissional</li>
+                        <li>Saúde comunitária</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SOLUÇÕES -->
+        <section id="solucoes">
+            <h2>Nossas Soluções Sustentáveis</h2>
+            <p>
+                Implementamos soluções práticas e comprovadas que transformam propriedades agrícolas em 
+                referências de sustentabilidade:
+            </p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">♻️</div>
+                    <h3>Reciclagem Agrícola</h3>
+                    <p>
+                        Aproveitamento de resíduos agrícolas para produção de adubo orgânico e energia 
+                        limpa, fechando o ciclo da produção sustentável.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💧</div>
+                    <h3>Gestão de Água</h3>
+                    <p>
+                        Técnicas eficientes de irrigação e conservação de água, garantindo produção sem 
+                        desperdício hídrico.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3>Agricultura Orgânica</h3>
+                    <p>
+                        Produção sem agrotóxicos sintéticos, utilizando processos naturais para controle 
+                        de pragas e nutrição do solo.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Educação & Capacitação</h3>
+                    <p>
+                        Programas de treinamento para produtores rurais sobre técnicas sustentáveis e 
+                        inovações tecnológicas.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🔬</div>
+                    <h3>Inovação Tecnológica</h3>
+                    <p>
+                        Uso de tecnologias como drones, sensores e IA para otimizar produção com menor 
+                        impacto ambiental.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🌳</div>
+                    <h3>Reflorestamento</h3>
+                    <p>
+                        Programas de plantio e regeneração de florestas nativas para recuperação ambiental 
+                        e sequestro de carbono.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- IMPACTO -->
+        <section>
+            <h2>Nosso Impacto</h2>
+            <div class="cards-container">
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon">📊</div>
+                    <h3>+500</h3>
+                    <p>Propriedades Transformadas</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon">👨‍🌾</div>
+                    <h3>+2000</h3>
+                    <p>Produtores Capacitados</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon">🌲</div>
+                    <h3>+1M</h3>
+                    <p>Árvores Plantadas</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CONTATO -->
+        <section id="contato">
+            <h2>Entre em Contato</h2>
+            <p>
+                Quer conhecer mais sobre nosso projeto ou participar da revolução sustentável na agricultura? 
+                Entre em contato conosco!
+            </p>
+            
+            <div class="highlight">
+                <h3>Informações de Contato</h3>
+                <p>
+                    <strong>Email:</strong> contato@agrinho-rec.com.br<br>
+                    <strong>Telefone:</strong> (XX) XXXX-XXXX<br>
+                    <strong>Localização:</strong> Brasil
+                </p>
+            </div>
+            
+            <button class="btn">📧 Enviar Mensagem</button>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <h3>Agrinho Rec</h3>
+            <p>Agro Forte, Futuro Sustentável - Equilíbrio entre Produção e Meio Ambiente</p>
+            
+            <div class="footer-links">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#pilares">Pilares</a>
+                <a href="#solucoes">Soluções</a>
+                <a href="#contato">Contato</a>
+            </div>
+            
+            <p>&copy; 2026 Agrinho Rec. Todos os direitos reservados.</p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">
+                Construindo um futuro onde a agricultura alimenta o mundo sem destruir o planeta.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
